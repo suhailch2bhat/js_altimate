@@ -1,0 +1,304 @@
+What is the HTML DOM?
+The HTML DOM is a standard object model and programming interface for HTML. It defines:
+The HTML elements as objects
+The properties of all HTML elements
+The methods to access all HTML elements
+The events for all HTML elements
+In other words: The HTML DOM is a standard for how to get, change, add, or delete HTML elements.
+A property is a value that you can get or set (like changing the content of an HTML element).
+A method is an action you can do (like add or deleting an HTML element).
+Finding HTML Elements
+Method
+Description
+document.getElementById(id)
+Find an element by element id
+document.getElementsByTagName(name)
+Find elements by tag name
+document.getElementsByClassName(name)
+ 
+Changing HTML Elements
+Property
+ 
+ 
+ 
+Description
+element.innerHTML =  new html content
+Change the inner HTML of an element
+element.attribute = new value
+Change the attribute value of an HTML element
+element.style.property = new style
+Change the style of an HTML element
+Method
+Description
+element.setAttribute(attribute, value)
+Change the attribute value of an HTML element
+
+Adding and Deleting Elements
+Method
+Description
+document.createElement(element)
+Create an HTML element
+document.removeChild(element)
+Remove an HTML element
+document.appendChild(element)
+Add an HTML element
+document.replaceChild(new, old)
+Replace an HTML element
+document.write(text)
+Write into the HTML output stream
+ 
+
+ 
+Find elements by class name
+
+ 
+HTML DOM Event
+HTML DOM allows JavaScript to react to HTML events:
+Examples of HTML events:
+When a user clicks the mouse
+When a web page has loaded
+When an image has been loaded
+When the mouse moves over an element
+When an input field is changed
+When an HTML form is submitted
+When a user strokes a key
+ Onclick  , onmousedown,onmouseup,onmouseover,onmousedown
+
+https://www.w3schools.com/js/js_htmldom_events.asp
+
+EX: <h1 onclick="changeText(this)">Click on this text!</h1>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 onclick="changeText(this)">Click on this text!</h1>
+
+<script>
+function changeText(id) {
+  id.innerHTML = "Ooops!";
+}
+</script>
+
+HTML DOM EventListener
+<html>
+<body>
+
+<h2>JavaScript addEventListener()</h2>
+
+<p>This example uses the addEventListener() method to add many events on the same button.</p>
+
+<button id="myBtn">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("myBtn");
+x
+x.addEventListener("click", mySecondFunction);
+x.addEventListener("mouseout", myThirdFunction);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML += "Moused over!<br>";
+}
+
+function mySecondFunction() {
+  document.getElementById("demo").innerHTML += "Clicked!<br>";
+}
+
+function myThirdFunction() {
+  document.getElementById("demo").innerHTML += "Moused out!<br>";
+}
+</script>
+
+</body>
+</html>
+
+
+HTML DOM Elements (Nodes)
+Creating New HTML Elements (Nodes)
+
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<p>Add a new HTML Element.</p>
+
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+const element = document.getElementById("div1");
+element.appendChild(para);
+</script>
+
+</body>
+</html>
+
+Creating new HTML Elements -insertBefore()
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<p>Add a new HTML Element.</p>
+
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+const child = document.getElementById("p1");
+element.insertBefore(para,child);
+</script>
+
+</body>
+</html>
+
+Removing Existing HTML Elements
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<h3>Remove an HTML Element.</h3>
+
+<div>
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<button onclick="myFunction()">Remove Element</button>
+
+<script>
+function myFunction() {
+document.getElementById("p1").remove();
+}
+</script>
+
+</body>
+</html>
+Removing a Child Node
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<p>Remove Child Element</p>
+
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+parent.removeChild(child);
+</script>
+
+</body>
+</html>
+
+Replacing HTML Elements 
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<h3>Replace an HTML Element.</h3>
+
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is a paragraph.</p>
+</div>
+
+<script>
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+parent.replaceChild(para,child);
+</script>
+
+</body>
+</html>
+//////////////////////////////////////////
+PRACTICE
+////////////////////////////////////////////////////////////////////////
+///////
+<!DOCTYPE html>
+<html>
+<body>
+  <div>
+<img class="myImage">  
+<h1 >hi suhail</h1>
+    </div>
+    <h2>well done</h2>
+    
+<script>
+
+let a=document.querySelector("h1")
+let l=document.querySelector("h2")
+let b=document.getElementsByClassName("myImage")
+a.innerHTML="GOOD BY"
+a.style.color="green"
+let bb=document.querySelector("div")
+let k=document.createElement("p")
+bb.appendChild(k)
+// k.set(class,"p2")
+let mm=document.createTextNode("asdf")
+k.appendChild(mm)
+k.style.color="red"
+// bb.replaceChild(,l);
+l.remove()
+console.log(b)
+console.log(k)
+console.log(a)
+
+
+</script>
+
+</body>
+</html>
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+  <button onclick="myFunction()">click on</button>
+  <button class="b1">clickmouseover</button>
+   <button class="b2">clickonmousedown</button>  
+  </div>
+<script>let e=document.querySelector(".b1")
+e.addEventListener("mouseover", myFunction);
+let j=document.querySelector(".b2")
+j.addEventListener("onmouseup", myFunction);
+function myFunction(){
+  let k=document.querySelector("div")
+  let a=document.createElement("p")
+  let t=document.createTextNode("well done")
+  
+  k.appendChild(a)
+  a.appendChild(t)
+  console.log("go")
+  
+}
+</script>
+</body>
+</html>
+
